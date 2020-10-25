@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = {
     init: () => {
@@ -12,7 +14,7 @@ module.exports = {
             family: 4,
         };
 
-        mongoose.connect('mongodb://localhost:27017', dbOptions);
+        mongoose.connect(process.env.MONGODB_SERVER, dbOptions);
         mongoose.set('useFindAndModify', false);
         mongoose.Promise = global.Promise;
 
@@ -28,4 +30,4 @@ module.exports = {
             console.log('Mongoose connection disconnected.');
         });
     },
-}
+};
