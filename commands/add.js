@@ -1,9 +1,9 @@
 const Players = require('../models/players');
 
 module.exports = {
-	name: 'add',
+    name: 'add',
     description: 'Adds player to Players model',
-	execute(message) {
+    execute(message) {
 		const newPlayer = new Players({
             name: message.author,
         });
