@@ -5,7 +5,8 @@ module.exports = {
     description: 'Adds player to Players model',
     execute(message) {
 		const newPlayer = new Players({
-            name: message.author,
+            discordId: message.author,
+            displayName: message.member.displayName,
         });
 
         Players.create(newPlayer);
